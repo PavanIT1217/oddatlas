@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>OddAtlas — Strange & Surprising Places on Earth, on a Map</title>
+    <meta
+      name="description"
+      content="Explore a growing atlas of the strangest places on Earth you can see from above: geoglyphs, bizarre landforms, abandoned structures, pink lakes and mysterious installations — on an interactive satellite map."
+    />
+    <meta name="keywords" content="strange places, weird places on Google Maps, satellite oddities, geoglyphs, abandoned places, mysterious places, bizarre landforms, atlas" />
+    <meta name="author" content="PavanIT1217" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://pavanit1217.github.io/oddatlas/" />
+    <meta name="theme-color" content="#f5f3ee" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#13151c" media="(prefers-color-scheme: dark)" />
+    <meta name="color-scheme" content="light dark" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="OddAtlas" />
+    <meta property="og:title" content="OddAtlas — the strangest places on Earth, on a map" />
+    <meta property="og:description" content="Geoglyphs, pink lakes, burning craters, ghost towns and secret bases you can see from space." />
+    <meta property="og:url" content="https://pavanit1217.github.io/oddatlas/" />
+    <meta property="og:image" content="https://pavanit1217.github.io/oddatlas/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="OddAtlas satellite map with strange places" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="OddAtlas — the strangest places on Earth" />
+    <meta name="twitter:description" content="Geoglyphs, pink lakes, burning craters and secret bases you can see from space." />
+    <meta name="twitter:image" content="https://pavanit1217.github.io/oddatlas/og-image.png" />
+
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="OddAtlas" />
+    <script>
+      // Apply the saved theme before first paint (no flash).
+      try {
+        const t = localStorage.getItem('oddatlas:theme');
+        if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+      } catch {}
+    </script>
+    <!--SEO_JSONLD-->
+  </head>
+  <body data-view="map">
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="OddAtlas home">
+        <svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><use href="#logo" /></svg>
+        <span>Odd<b>Atlas</b></span>
+      </a>
+      <div class="top-actions">
+        <button id="btn-random" class="btn ghost" type="button" title="Take me somewhere strange">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-dice" /></svg><span class="label">Random</span>
+        </button>
+        <button id="btn-add-top" class="btn primary desktop-only" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-plus" /></svg><span>Add place</span>
+        </button>
+        <button id="btn-menu" class="icon-btn" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="menu" aria-label="More">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-dots" /></svg>
+        </button>
+        <div id="menu" class="menu" role="menu" hidden>
+          <button role="menuitem" type="button" data-action="export">Export catalogue (JSON)</button>
+          <button role="menuitem" type="button" data-action="import">Import catalogue…</button>
+          <button role="menuitem" type="button" data-action="theme">Theme: <span id="theme-name">Auto</span></button>
+          <button role="menuitem" type="button" data-action="reset">Reset to original list</button>
+          <button role="menuitem" type="button" data-action="about">About OddAtlas</button>
+        </div>
+        <input id="import-file" type="file" accept="application/json,.json" hidden />
+      </div>
+    </header>
+
+    <main class="layout">
+      <section id="list-view" class="list-view" aria-label="Places list">
+        <div class="filters">
+          <label class="search">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-search" /></svg>
+            <span class="visually-hidden">Search places</span>
+            <input id="q" type="search" placeholder="Search pink lakes, craters, Peru…" autocomplete="off" />
+          </label>
+          <div class="filter-row">
+            <label class="visually-hidden" for="f-category">Category</label>
+            <select id="f-category" class="select"><option value="">All categories</option></select>
+            <label class="visually-hidden" for="f-sort">Sort</label>
+            <select id="f-sort" class="select">
+              <option value="name">Name A–Z</option>
+              <option value="newest">Newest</option>
+              <option value="country">Country</option>
+              <option value="category">Category</option>
+              <option value="nearest">Nearest to map</option>
+            </select>
+          </div>
+          <div id="tag-chips" class="chips" role="group" aria-label="Filter by tag"></div>
+        </div>
+        <p id="result-count" class="result-count" aria-live="polite"></p>
+        <ol id="place-list" class="place-list">
+          <!--SEO_LIST-->
+        </ol>
+      </section>
+
+      <section id="map-view" class="map-view" aria-label="Map">
+        <div id="map" class="map" role="application" aria-label="Map of strange places"></div>
+        <article id="card" class="card" hidden aria-live="polite"></article>
+      </section>
+    </main>
+
+    <nav class="bottom-nav" aria-label="Views">
+      <button type="button" data-view="map" aria-pressed="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-map" /></svg>Map</button>
+      <button type="button" data-view="list" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-list" /></svg>List</button>
+      <button type="button" id="btn-add" class="add"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-plus" /></svg>Add</button>
+    </nav>
+
+    <dialog id="form-dialog" class="dialog" aria-labelledby="form-title">
+      <form id="place-form" method="dialog" novalidate>
+        <header class="dialog-head">
+          <h2 id="form-title">Add a strange place</h2>
+          <button class="icon-btn" value="cancel" formnovalidate aria-label="Close"><svg viewBox="0 0 24 24"><use href="#i-x" /></svg></button>
+        </header>
+        <div class="dialog-body">
+          <label class="field">
+            <span>Paste a Google Maps link <small>(fills in the coordinates)</small></span>
+            <input name="gmaps" type="url" inputmode="url" placeholder="https://www.google.com/maps/@21.124,-11.4017,11z" />
+            <small id="gmaps-status" class="hint" aria-live="polite"></small>
+          </label>
+          <div class="grid3">
+            <label class="field"><span>Latitude</span><input name="lat" type="number" step="any" min="-90" max="90" required /></label>
+            <label class="field"><span>Longitude</span><input name="lng" type="number" step="any" min="-180" max="180" required /></label>
+            <label class="field"><span>Zoom</span><input name="zoom" type="number" min="2" max="21" step="1" value="15" required /></label>
+          </div>
+          <button id="use-map-center" class="btn small ghost" type="button">Use current map centre</button>
+          <label class="field"><span>Name</span><input name="name" required maxlength="100" /></label>
+          <div class="grid2">
+            <label class="field"><span>Country</span><input name="country" required maxlength="60" /></label>
+            <label class="field"><span>Category</span><select name="category" class="select" required></select></label>
+          </div>
+          <label class="field"><span>Short description <small>(2–3 sentences)</small></span><textarea name="description" rows="3" required maxlength="600"></textarea></label>
+          <label class="field"><span>Why it's strange</span><textarea name="whyStrange" rows="3" required maxlength="600"></textarea></label>
+          <label class="field"><span>Tags <small>(comma separated)</small></span><input name="tags" placeholder="desert, circular, mystery" /></label>
+          <p id="form-errors" class="form-errors" role="alert" hidden></p>
+        </div>
+        <footer class="dialog-foot">
+          <button class="btn ghost" value="cancel" formnovalidate>Cancel</button>
+          <button id="form-submit" class="btn primary" value="save">Save place</button>
+        </footer>
+      </form>
+    </dialog>
+
+    <dialog id="import-dialog" class="dialog small" aria-labelledby="import-title">
+      <form method="dialog">
+        <header class="dialog-head"><h2 id="import-title">Import catalogue</h2></header>
+        <div class="dialog-body"><p id="import-summary"></p></div>
+        <footer class="dialog-foot">
+          <button class="btn ghost" value="cancel">Cancel</button>
+          <button class="btn" value="merge">Merge</button>
+          <button class="btn primary" value="replace">Replace all</button>
+        </footer>
+      </form>
+    </dialog>
+
+    <dialog id="about-dialog" class="dialog small" aria-labelledby="about-title">
+      <form method="dialog">
+        <header class="dialog-head"><h2 id="about-title">About OddAtlas</h2></header>
+        <div class="dialog-body">
+          <p>OddAtlas is a hand-curated catalogue of strange places on Earth that you can see from above. Every seed entry was checked against satellite imagery.</p>
+          <p>Add your own finds — they're saved on this device. Export your catalogue as JSON to back it up or share it, or propose a place for everyone by opening a pull request that edits <code>data/places.json</code> on <a href="https://github.com/PavanIT1217/oddatlas" rel="noopener">GitHub</a>.</p>
+          <p class="small">Map © <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap</a> contributors. Imagery © Esri, Maxar, Earthstar Geographics and the GIS user community. <a href="./privacy.html">Privacy</a></p>
+        </div>
+        <footer class="dialog-foot"><button class="btn primary" value="close">Close</button></footer>
+      </form>
+    </dialog>
+
+    <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+    <noscript><p class="noscript">OddAtlas needs JavaScript for the interactive map. The full list of places is shown above.</p></noscript>
+
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <symbol id="logo" viewBox="0 0 32 32">
+        <circle cx="16" cy="16" r="13" fill="none" stroke="currentColor" stroke-width="2.2" />
+        <path d="M5 13.5c4 1.5 6-2 10-.5s4 6 9 4.5M6 21c3-1 5 1.5 8 .5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity=".55" />
+        <circle cx="21" cy="11" r="3.4" fill="var(--accent)" />
+        <circle cx="21" cy="11" r="1.2" fill="var(--bg)" />
+      </symbol>
+      <symbol id="i-dice" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="4" fill="none" stroke="currentColor" stroke-width="1.8" /><circle cx="8.5" cy="8.5" r="1.4" fill="currentColor" /><circle cx="15.5" cy="15.5" r="1.4" fill="currentColor" /><circle cx="12" cy="12" r="1.4" fill="currentColor" /><circle cx="15.5" cy="8.5" r="1.4" fill="currentColor" /><circle cx="8.5" cy="15.5" r="1.4" fill="currentColor" /></symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" /></symbol>
+      <symbol id="i-dots" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.8" fill="currentColor" /><circle cx="12" cy="12" r="1.8" fill="currentColor" /><circle cx="19" cy="12" r="1.8" fill="currentColor" /></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2" /><path d="M15.5 15.5 21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></symbol>
+      <symbol id="i-map" viewBox="0 0 24 24"><path d="M9 4 3 6.5v13.5l6-2.5 6 2.5 6-2.5V4l-6 2.5z M9 4v13.5 M15 6.5V20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" /></symbol>
+      <symbol id="i-list" viewBox="0 0 24 24"><path d="M8 6h12M8 12h12M8 18h12" stroke="currentColor" stroke-width="2" stroke-linecap="round" /><circle cx="4" cy="6" r="1.3" fill="currentColor" /><circle cx="4" cy="12" r="1.3" fill="currentColor" /><circle cx="4" cy="18" r="1.3" fill="currentColor" /></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-6.2-6.5-11.2A6.5 6.5 0 0 1 18.5 9.8C18.5 14.8 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="1.8" /><circle cx="12" cy="10" r="2.4" fill="currentColor" /></symbol>
+    </svg>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,497 @@
+[
+  {
+    "id": "richat-structure",
+    "name": "Richat Structure (Eye of the Sahara)",
+    "lat": 21.124,
+    "lng": -11.4017,
+    "country": "Mauritania",
+    "category": "landform",
+    "description": "A set of concentric rock rings about 40 km across, sitting in otherwise flat Saharan desert. From orbit it looks like a giant bullseye.",
+    "whyStrange": "It looks like an impact crater but isn't one — it is an eroded dome of layered rock whose hard and soft bands weathered at different rates.",
+    "googleMapsUrl": "https://www.google.com/maps/@21.124,-11.4017,11z",
+    "zoom": 11,
+    "tags": [
+      "desert",
+      "circular",
+      "geology",
+      "visible-from-space"
+    ],
+    "dateAdded": "2026-10-15"
+  },
+  {
+    "id": "lake-hillier",
+    "name": "Lake Hillier",
+    "lat": -34.0951,
+    "lng": 123.2027,
+    "country": "Australia",
+    "category": "water",
+    "description": "A small lake on Middle Island off Western Australia, separated from the deep-blue Southern Ocean by a thin strip of sand and eucalyptus forest.",
+    "whyStrange": "Its water is often bubble-gum pink, coloured by salt-loving algae and bacteria; the shade changes with season and salinity, so imagery may show it pale.",
+    "googleMapsUrl": "https://www.google.com/maps/@-34.0951,123.2027,15z",
+    "zoom": 15,
+    "tags": [
+      "pink-lake",
+      "colour",
+      "island",
+      "algae"
+    ],
+    "dateAdded": "2026-10-15"
+  },
+  {
+    "id": "uffington-white-horse",
+    "name": "Uffington White Horse",
+    "lat": 51.57775,
+    "lng": -1.5666,
+    "country": "United Kingdom",
+    "category": "geoglyph",
+    "description": "A highly stylised horse, 110 m long, cut into a chalk hillside in Oxfordshire and filled with crushed white chalk.",
+    "whyStrange": "It is roughly 3,000 years old (Bronze Age) and only survives because locals have re-scoured the lines for centuries — and its abstract shape is best appreciated from the air.",
+    "googleMapsUrl": "https://www.google.com/maps/@51.57775,-1.5666,17z",
+    "zoom": 17,
+    "tags": [
+      "prehistoric",
+      "chalk",
+      "hill-figure",
+      "bronze-age"
+    ],
+    "dateAdded": "2026-10-15"
+  },
+  {
+    "id": "spiral-jetty",
+    "name": "Spiral Jetty",
+    "lat": 41.4375,
+    "lng": -112.66894,
+    "country": "United States",
+    "category": "art",
+    "description": "A 460 m coil of black basalt rock and mud winding into the Great Salt Lake, built by artist Robert Smithson in 1970.",
+    "whyStrange": "Depending on lake levels it disappears underwater for years, then re-emerges encrusted with white salt crystals.",
+    "googleMapsUrl": "https://www.google.com/maps/@41.4375,-112.66894,17z",
+    "zoom": 17,
+    "tags": [
+      "land-art",
+      "salt",
+      "utah",
+      "spiral"
+    ],
+    "dateAdded": "2026-10-15"
+  },
+  {
+    "id": "mir-mine",
+    "name": "Mir Diamond Mine",
+    "lat": 62.52759,
+    "lng": 113.99361,
+    "country": "Russia",
+    "category": "crater",
+    "description": "An abandoned open-pit diamond mine in Siberia: a terraced hole about 525 m deep and 1.2 km wide, now partly flooded.",
+    "whyStrange": "It is one of the largest excavated holes on Earth, and the vortex of air above it was long said to be a hazard for low-flying helicopters.",
+    "googleMapsUrl": "https://www.google.com/maps/@62.52759,113.99361,15z",
+    "zoom": 15,
+    "tags": [
+      "mine",
+      "pit",
+      "siberia",
+      "diamond",
+      "abandoned"
+    ],
+    "dateAdded": "2026-10-15"
+  },
+  {
+    "id": "darvaza-gas-crater",
+    "name": "Darvaza Gas Crater (Door to Hell)",
+    "lat": 40.25256,
+    "lng": 58.43966,
+    "country": "Turkmenistan",
+    "category": "crater",
+    "description": "A collapsed crater in the Karakum Desert, about 70 m wide, where natural gas has been burning continuously for decades.",
+    "whyStrange": "It is believed to have been set alight deliberately during Soviet-era drilling to burn off the gas — and it simply never went out.",
+    "googleMapsUrl": "https://www.google.com/maps/@40.25256,58.43966,17z",
+    "zoom": 17,
+    "tags": [
+      "fire",
+      "desert",
+      "gas",
+      "soviet"
+    ],
+    "dateAdded": "2026-10-15"
+  },
+  {
+    "id": "davis-monthan-boneyard",
+    "name": "The Boneyard at Davis–Monthan",
+    "lat": 32.1515,
+    "lng": -110.8264,
+    "country": "United States",
+    "category": "installation",
+    "description": "Thousands of retired military aircraft parked in tidy rows on the Arizona desert, stored by the 309th Aerospace Maintenance and Regeneration Group.",
+    "whyStrange": "The dry air and alkaline soil slow corrosion, so it doubles as an enormous outdoor parts warehouse — the planes look like a toy collection from above.",
+    "googleMapsUrl": "https://www.google.com/maps/@32.1515,-110.8264,15z",
+    "zoom": 15,
+    "tags": [
+      "aircraft",
+      "military",
+      "graveyard",
+      "arizona"
+    ],
+    "dateAdded": "2026-10-15"
+  },
+  {
+    "id": "gobi-desert-grids",
+    "name": "Gobi Desert Grids",
+    "lat": 40.45815,
+    "lng": 93.39329,
+    "country": "China",
+    "category": "installation",
+    "description": "Huge patterns of pale lines — zigzags, grids and radiating spokes — scraped across the desert of Gansu province.",
+    "whyStrange": "They are widely believed to be calibration targets for spy-satellite cameras, but no official explanation has ever been given.",
+    "googleMapsUrl": "https://www.google.com/maps/@40.45815,93.39329,15z",
+    "zoom": 15,
+    "tags": [
+      "military",
+      "mystery",
+      "lines",
+      "satellite-calibration"
+    ],
+    "dateAdded": "2026-10-15"
+  },
+  {
+    "id": "great-blue-hole",
+    "name": "Great Blue Hole",
+    "lat": 17.3157,
+    "lng": -87.5346,
+    "country": "Belize",
+    "category": "water",
+    "description": "A near-perfect circle of deep indigo water about 300 m across, ringed by the pale coral of Lighthouse Reef.",
+    "whyStrange": "It is a sinkhole that formed on dry land during the last ice age and was drowned when sea levels rose; stalactites still hang inside it.",
+    "googleMapsUrl": "https://www.google.com/maps/@17.3157,-87.5346,15z",
+    "zoom": 15,
+    "tags": [
+      "sinkhole",
+      "reef",
+      "diving",
+      "circular"
+    ],
+    "dateAdded": "2026-10-15"
+  },
+  {
+    "id": "fly-geyser",
+    "name": "Fly Geyser",
+    "lat": 40.85934,
+    "lng": -119.33186,
+    "country": "United States",
+    "category": "landform",
+    "description": "A small, multicoloured mound in the Nevada desert that sprays hot water from several vents, surrounded by terraced pools.",
+    "whyStrange": "It is accidental: a 1960s well drilling punctured a geothermal pocket, and dissolved minerals have been building the brightly coloured cone ever since.",
+    "googleMapsUrl": "https://www.google.com/maps/@40.85934,-119.33186,18z",
+    "zoom": 18,
+    "tags": [
+      "geyser",
+      "geothermal",
+      "accidental",
+      "colour"
+    ],
+    "dateAdded": "2026-10-15"
+  },
+  {
+    "id": "sedan-crater",
+    "name": "Sedan Crater",
+    "lat": 37.17722,
+    "lng": -116.04639,
+    "country": "United States",
+    "category": "crater",
+    "description": "A 390 m wide, 100 m deep crater on the Nevada National Security Site.",
+    "whyStrange": "It was blasted in 1962 by a 104-kiloton nuclear test exploring whether bombs could be used for excavation — it is the largest man-made crater in the US.",
+    "googleMapsUrl": "https://www.google.com/maps/@37.17722,-116.04639,16z",
+    "zoom": 16,
+    "tags": [
+      "nuclear",
+      "test-site",
+      "crater",
+      "cold-war"
+    ],
+    "dateAdded": "2026-10-15"
+  },
+  {
+    "id": "huangyangtan-terrain-model",
+    "name": "Huangyangtan Terrain Model",
+    "lat": 38.265,
+    "lng": 105.95,
+    "country": "China",
+    "category": "installation",
+    "description": "A walled compound near Yinchuan holding a roughly 900 × 700 m scale model of mountainous terrain.",
+    "whyStrange": "Satellite watchers matched it to the disputed Aksai Chin region on the China–India border; its purpose is presumed to be military training.",
+    "googleMapsUrl": "https://www.google.com/maps/@38.265,105.95,14z",
+    "zoom": 14,
+    "tags": [
+      "military",
+      "scale-model",
+      "mystery",
+      "border"
+    ],
+    "dateAdded": "2026-10-15"
+  },
+  {
+    "id": "groom-lake",
+    "name": "Groom Lake (Area 51)",
+    "lat": 37.239,
+    "lng": -115.8158,
+    "country": "United States",
+    "category": "installation",
+    "description": "A dry lakebed in the Nevada desert flanked by long runways, hangars and support buildings.",
+    "whyStrange": "It is the famously secretive Area 51 test site — long denied officially and the subject of endless UFO lore.",
+    "googleMapsUrl": "https://www.google.com/maps/@37.239,-115.8158,13z",
+    "zoom": 13,
+    "tags": [
+      "secret",
+      "military",
+      "airbase",
+      "ufo"
+    ],
+    "dateAdded": "2026-10-15"
+  },
+  {
+    "id": "cretto-di-burri",
+    "name": "Cretto di Burri",
+    "lat": 37.78819,
+    "lng": 12.97147,
+    "country": "Italy",
+    "category": "art",
+    "description": "A field of white concrete blocks covering the ruins of old Gibellina in Sicily, cut through by narrow walkable lanes.",
+    "whyStrange": "Artist Alberto Burri entombed the earthquake-destroyed town under concrete; the lanes follow the old streets, making it a town-sized memorial.",
+    "googleMapsUrl": "https://www.google.com/maps/@37.78819,12.97147,16z",
+    "zoom": 16,
+    "tags": [
+      "land-art",
+      "earthquake",
+      "memorial",
+      "ruins"
+    ],
+    "dateAdded": "2026-10-15"
+  },
+  {
+    "id": "galesnjak",
+    "name": "Galešnjak (Island of Love)",
+    "lat": 43.97806,
+    "lng": 15.3825,
+    "country": "Croatia",
+    "category": "landform",
+    "description": "A tiny uninhabited island in the Pašman Channel off the Dalmatian coast.",
+    "whyStrange": "It is naturally shaped like an almost perfect heart — first noticed when the island appeared in aerial imagery.",
+    "googleMapsUrl": "https://www.google.com/maps/@43.97806,15.3825,16z",
+    "zoom": 16,
+    "tags": [
+      "heart",
+      "island",
+      "natural-shape"
+    ],
+    "dateAdded": "2026-10-15"
+  },
+  {
+    "id": "the-world-islands",
+    "name": "The World Islands",
+    "lat": 25.2235,
+    "lng": 55.165,
+    "country": "United Arab Emirates",
+    "category": "artificial-island",
+    "description": "Around 300 artificial islands off Dubai, arranged to form a map of the world's continents.",
+    "whyStrange": "Built from dredged sand in the 2000s, most of the islands remain undeveloped years later, slowly reshaped by the sea.",
+    "googleMapsUrl": "https://www.google.com/maps/@25.2235,55.165,13z",
+    "zoom": 13,
+    "tags": [
+      "artificial",
+      "dubai",
+      "megaproject",
+      "map"
+    ],
+    "dateAdded": "2026-10-15"
+  },
+  {
+    "id": "duga-radar",
+    "name": "Duga Radar",
+    "lat": 51.30528,
+    "lng": 30.06556,
+    "country": "Ukraine",
+    "category": "abandoned",
+    "description": "A rusting wall of antennas, roughly 150 m tall and 500 m long, hidden in the forest of the Chernobyl Exclusion Zone.",
+    "whyStrange": "This Soviet over-the-horizon radar broadcast a repetitive tapping signal worldwide, nicknamed the 'Russian Woodpecker' by radio listeners.",
+    "googleMapsUrl": "https://www.google.com/maps/@51.30528,30.06556,16z",
+    "zoom": 16,
+    "tags": [
+      "soviet",
+      "radar",
+      "chernobyl",
+      "cold-war"
+    ],
+    "dateAdded": "2026-10-15"
+  },
+  {
+    "id": "bourtange",
+    "name": "Bourtange Star Fort",
+    "lat": 53.00694,
+    "lng": 7.19194,
+    "country": "Netherlands",
+    "category": "fortification",
+    "description": "A five-pointed star fortress surrounded by double moats in the north-east of the Netherlands.",
+    "whyStrange": "Restored to its 18th-century layout, the whole village sits inside a geometric star that only really makes sense from above.",
+    "googleMapsUrl": "https://www.google.com/maps/@53.00694,7.19194,16z",
+    "zoom": 16,
+    "tags": [
+      "star-fort",
+      "moat",
+      "geometry",
+      "history"
+    ],
+    "dateAdded": "2026-10-15"
+  },
+  {
+    "id": "grand-prismatic-spring",
+    "name": "Grand Prismatic Spring",
+    "lat": 44.52512,
+    "lng": -110.83814,
+    "country": "United States",
+    "category": "water",
+    "description": "The largest hot spring in the United States, in Yellowstone National Park, about 110 m across.",
+    "whyStrange": "Bands of heat-loving microbes paint it in rings from deep blue through green and yellow to orange — like a giant eye.",
+    "googleMapsUrl": "https://www.google.com/maps/@44.52512,-110.83814,16z",
+    "zoom": 16,
+    "tags": [
+      "hot-spring",
+      "colour",
+      "microbes",
+      "yellowstone"
+    ],
+    "dateAdded": "2026-10-15"
+  },
+  {
+    "id": "kolmanskop",
+    "name": "Kolmanskop Ghost Town",
+    "lat": -26.7032,
+    "lng": 15.2312,
+    "country": "Namibia",
+    "category": "abandoned",
+    "description": "A former diamond-mining town in the Namib Desert, abandoned in the 1950s.",
+    "whyStrange": "Sand dunes have marched into the houses: rooms are filled to the windowsills with sand while the buildings still stand.",
+    "googleMapsUrl": "https://www.google.com/maps/@-26.7032,15.2312,17z",
+    "zoom": 17,
+    "tags": [
+      "ghost-town",
+      "desert",
+      "diamond",
+      "sand"
+    ],
+    "dateAdded": "2026-10-15"
+  },
+  {
+    "id": "dallol",
+    "name": "Dallol Hydrothermal Field",
+    "lat": 14.2417,
+    "lng": 40.3,
+    "country": "Ethiopia",
+    "category": "landform",
+    "description": "A hydrothermal field in the Danakil Depression, more than 100 m below sea level.",
+    "whyStrange": "Acidic hot springs and salt deposits create neon yellow, green and orange pools — one of the most alien-looking places on the planet.",
+    "googleMapsUrl": "https://www.google.com/maps/@14.2417,40.3,16z",
+    "zoom": 16,
+    "tags": [
+      "volcanic",
+      "acid",
+      "colour",
+      "salt",
+      "hot"
+    ],
+    "dateAdded": "2026-10-15"
+  },
+  {
+    "id": "palmanova",
+    "name": "Palmanova",
+    "lat": 45.9055,
+    "lng": 13.3101,
+    "country": "Italy",
+    "category": "fortification",
+    "description": "A Renaissance town in Friuli built inside a nine-pointed star of fortifications, with streets radiating from a hexagonal central square.",
+    "whyStrange": "It was planned from scratch in 1593 as an 'ideal city' — its perfect radial symmetry is unmistakable from above.",
+    "googleMapsUrl": "https://www.google.com/maps/@45.9055,13.3101,15z",
+    "zoom": 15,
+    "tags": [
+      "star-fort",
+      "ideal-city",
+      "renaissance",
+      "geometry"
+    ],
+    "dateAdded": "2026-10-15"
+  },
+  {
+    "id": "lake-retba",
+    "name": "Lake Retba (Lac Rose)",
+    "lat": 14.8389,
+    "lng": -17.2342,
+    "country": "Senegal",
+    "category": "water",
+    "description": "A shallow, very salty lake just behind the dunes of Senegal's Atlantic coast, near Dakar.",
+    "whyStrange": "Its water can turn strawberry pink thanks to salt-loving algae, especially in the dry season; workers harvest salt from its bed by hand.",
+    "googleMapsUrl": "https://www.google.com/maps/@14.8389,-17.2342,14z",
+    "zoom": 14,
+    "tags": [
+      "pink-lake",
+      "salt",
+      "colour",
+      "algae"
+    ],
+    "dateAdded": "2026-10-15"
+  },
+  {
+    "id": "hashima-island",
+    "name": "Hashima (Battleship Island)",
+    "lat": 32.6278,
+    "lng": 129.7386,
+    "country": "Japan",
+    "category": "abandoned",
+    "description": "A small island off Nagasaki entirely covered in concrete apartment blocks and a sea wall.",
+    "whyStrange": "It once housed a coal-mining community among the densest populations ever recorded, then was abandoned overnight in 1974; its silhouette resembles a warship.",
+    "googleMapsUrl": "https://www.google.com/maps/@32.6278,129.7386,16z",
+    "zoom": 16,
+    "tags": [
+      "ghost-town",
+      "island",
+      "coal",
+      "concrete"
+    ],
+    "dateAdded": "2026-10-15"
+  },
+  {
+    "id": "bingham-canyon-mine",
+    "name": "Bingham Canyon Mine",
+    "lat": 40.523,
+    "lng": -112.15,
+    "country": "United States",
+    "category": "crater",
+    "description": "A vast open-pit copper mine near Salt Lake City, over 4 km wide and around 1.2 km deep.",
+    "whyStrange": "Its stepped terraces form a giant spiral amphitheatre — it is one of the largest human-made excavations in the world.",
+    "googleMapsUrl": "https://www.google.com/maps/@40.523,-112.15,14z",
+    "zoom": 14,
+    "tags": [
+      "mine",
+      "copper",
+      "pit",
+      "terraces"
+    ],
+    "dateAdded": "2026-10-15"
+  },
+  {
+    "id": "nazca-hummingbird",
+    "name": "Nazca Lines — Hummingbird",
+    "lat": -14.69207,
+    "lng": -75.14888,
+    "country": "Peru",
+    "category": "geoglyph",
+    "description": "One of the Nazca geoglyphs: a hummingbird roughly 90 m long, drawn by removing dark surface stones to reveal lighter ground.",
+    "whyStrange": "Made around 2,000 years ago, the figures are hard to recognise from the ground; the surrounding plain is criss-crossed by long straight lines and trapezoids visible in imagery.",
+    "googleMapsUrl": "https://www.google.com/maps/@-14.69207,-75.14888,17z",
+    "zoom": 17,
+    "tags": [
+      "geoglyph",
+      "ancient",
+      "desert",
+      "unesco"
+    ],
+    "dateAdded": "2026-10-15"
+  }
+]

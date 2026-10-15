@@ -1,0 +1,22 @@
+name: Suggest a strange place
+description: Propose a place for the shared catalogue (or open a PR editing data/places.json directly).
+title: "Place: "
+labels: ["new place"]
+body:
+  - type: input
+    id: name
+    attributes: { label: Name, placeholder: Richat Structure }
+    validations: { required: true }
+  - type: input
+    id: link
+    attributes:
+      label: Google Maps link
+      description: Zoomed so the feature is clearly visible in satellite view, e.g. https://www.google.com/maps/@21.124,-11.4017,11z
+    validations: { required: true }
+  - type: textarea
+    id: why
+    attributes: { label: What is it, and why is it strange? }
+    validations: { required: true }
+  - type: input
+    id: source
+    attributes: { label: Source (Wikipedia or similar) }

@@ -1,4 +1,4 @@
-import { CATEGORY_ICON, CATEGORY_LABEL, type Place } from '../core/place';
+import { CATEGORY_CODE, CATEGORY_LABEL, type Place } from '../core/place';
 import { byId, h, svgIcon } from './dom';
 
 export interface CardActions {
@@ -19,7 +19,7 @@ export class Card {
   }
 
   show(p: Place, isUserPlace: boolean): void {
-    const fmt = (v: number, pos: string, neg: string) => `${Math.abs(v).toFixed(4)}° ${v >= 0 ? pos : neg}`;
+    const fmt = (v: number, pos: string, neg: string) => `${Math.abs(v).toFixed(3)}°${v >= 0 ? pos : neg}`;
     const close = h('button', { class: 'icon-btn', type: 'button', 'aria-label': 'Close' }, svgIcon('i-x'));
     close.addEventListener('click', () => this.actions.onClose());
     const edit = h('button', { class: 'btn small', type: 'button' }, 'Edit');
@@ -29,18 +29,33 @@ export class Card {
     const share = h('button', { class: 'btn small ghost', type: 'button' }, 'Share');
     share.addEventListener('click', () => this.actions.onShare(p));
 
+    const metric = (label: string, value: string, title?: string) =>
+      h('div', { class: 'metric', title }, h('dt', {}, label), h('dd', {}, value));
+
     this.el.replaceChildren(
-      h('div', { class: 'card-head' }, h('h2', { id: 'card-title' }, p.name), close),
       h(
         'div',
-        { class: 'meta' },
-        h('span', { class: 'cat' }, `${CATEGORY_ICON[p.category]} ${CATEGORY_LABEL[p.category]}`),
-        h('span', {}, p.country),
-        h('span', { class: 'coords' }, `${fmt(p.lat, 'N', 'S')}, ${fmt(p.lng, 'E', 'W')}`),
-        isUserPlace ? h('span', { class: 'mine' }, 'Your edit') : null,
+        { class: 'card-head' },
+        h(
+          'div',
+          { style: 'flex:1;min-width:0' },
+          h('div', { class: 'card-kicker' }, h('i', { 'aria-hidden': 'true' }), isUserPlace ? 'Target locked · your edit' : 'Target locked'),
+          h('h2', { id: 'card-title' }, p.name),
+          h('div', { class: 'country' }, p.country),
+        ),
+        close,
       ),
+      h(
+        'dl',
+        { class: 'metrics' },
+        metric('Lat', fmt(p.lat, 'N', 'S')),
+        metric('Lng', fmt(p.lng, 'E', 'W')),
+        metric('Zoom', `Z${p.zoom}`),
+        metric('Class', CATEGORY_CODE[p.category], CATEGORY_LABEL[p.category]),
+      ),
+      h('h3', {}, CATEGORY_LABEL[p.category]),
       h('p', {}, p.description),
-      h('h3', {}, 'Why it’s strange'),
+      h('h3', {}, 'Anomaly'),
       h('p', {}, p.whyStrange),
       h('div', { class: 'tags' }, ...p.tags.map((t) => h('span', {}, `#${t}`))),
       h(

@@ -34,14 +34,26 @@ await shot({ name: 'docs/screenshots/desktop-place.png', query: '?place=richat-s
 await shot({ name: ['docs/screenshots/mobile-map.png', 'public/screenshots/mobile.png'], ...phone });
 await shot({ name: 'docs/screenshots/mobile-card.png', query: '?place=great-blue-hole', ...phone, wait: 7000 });
 await shot({
-  name: 'docs/screenshots/mobile-list-dark.png',
+  name: 'docs/screenshots/mobile-list.png',
   ...phone,
-  scheme: 'dark',
   wait: 2500,
   before: async (page) => {
     await page.click('.bottom-nav [data-view="list"]');
     await page.click('#tag-chips .chip');
     await page.waitForTimeout(400);
+  },
+});
+await shot({
+  name: 'docs/screenshots/mobile-daylight.png',
+  query: '?place=lake-hillier',
+  ...phone,
+  wait: 7000,
+  before: async (page) => {
+    await page.evaluate(() => {
+      localStorage.setItem('oddatlas:theme', 'light');
+      document.documentElement.dataset.theme = 'light';
+    });
+    await page.waitForTimeout(600);
   },
 });
 await shot({

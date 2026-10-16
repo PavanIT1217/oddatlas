@@ -2,7 +2,7 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet.markercluster';
 import 'leaflet.markercluster/dist/MarkerCluster.css';
-import { CATEGORY_ICON, type Place } from '../core/place';
+import type { Place } from '../core/place';
 
 const STREET_URL = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
 const SATELLITE_URL = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}';
@@ -48,10 +48,17 @@ export class MapView {
       showCoverageOnHover: false,
       maxClusterRadius: 50,
       iconCreateFunction: (c) =>
-        L.divIcon({ html: `<div class="odd-cluster">${c.getChildCount()}</div>`, className: '', iconSize: [42, 42] }),
+        L.divIcon({ html: `<div class="odd-cluster">${String(c.getChildCount()).padStart(2, '0')}</div>`, className: '', iconSize: [44, 44] }),
     });
     this.map.addLayer(this.cluster);
     this.map.on('click', () => onBackgroundClick());
+  }
+
+  /** Called with the map centre and zoom whenever the view moves (for the HUD readout). */
+  onMove(fn: (c: { lat: number; lng: number; zoom: number }) => void): void {
+    const emit = () => fn(this.center());
+    this.map.on('move zoom', emit);
+    emit();
   }
 
   setPlaces(places: Place[]): void {
@@ -82,9 +89,9 @@ export class MapView {
   private icon(p: Place, selected: boolean): L.DivIcon {
     return L.divIcon({
       className: '',
-      html: `<div class="odd-marker${selected ? ' selected' : ''}"><span>${CATEGORY_ICON[p.category]}</span></div>`,
-      iconSize: [36, 36],
-      iconAnchor: [4, 36],
+      html: `<div class="odd-marker${selected ? ' selected' : ''}" data-cat="${p.category}"></div>`,
+      iconSize: [24, 24],
+      iconAnchor: [12, 12],
     });
   }
 

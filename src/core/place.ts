@@ -44,18 +44,19 @@ export const CATEGORY_LABEL: Record<Category, string> = {
   other: 'Other',
 };
 
-export const CATEGORY_ICON: Record<Category, string> = {
-  geoglyph: '🐎',
-  landform: '⛰️',
-  water: '💧',
-  abandoned: '🏚️',
-  structure: '🏛️',
-  installation: '📡',
-  crater: '⭕',
-  'artificial-island': '🏝️',
-  fortification: '🏰',
-  art: '🌀',
-  other: '❓',
+/** Short telemetry-style codes used in the HUD (markers, list badges, card). */
+export const CATEGORY_CODE: Record<Category, string> = {
+  geoglyph: 'GEO',
+  landform: 'LND',
+  water: 'H2O',
+  abandoned: 'ABN',
+  structure: 'STR',
+  installation: 'INS',
+  crater: 'CRT',
+  'artificial-island': 'ISL',
+  fortification: 'FRT',
+  art: 'ART',
+  other: 'UNK',
 };
 
 /** Canonical Google Maps link for a view, as stored in places.json. */

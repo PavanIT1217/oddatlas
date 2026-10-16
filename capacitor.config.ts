@@ -4,9 +4,9 @@ const config: CapacitorConfig = {
   appId: 'io.github.pavanit1217.oddatlas',
   appName: 'OddAtlas',
   webDir: 'dist',
-  backgroundColor: '#13151c',
+  backgroundColor: '#050b14',
   plugins: {
-    SplashScreen: { launchShowDuration: 600, backgroundColor: '#13151c', showSpinner: false },
+    SplashScreen: { launchShowDuration: 600, backgroundColor: '#050b14', showSpinner: false },
   },
   ios: { contentInset: 'never' },
 };

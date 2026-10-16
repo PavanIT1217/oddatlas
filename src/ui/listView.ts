@@ -1,4 +1,4 @@
-import { CATEGORIES, CATEGORY_ICON, CATEGORY_LABEL, type Category, type Place } from '../core/place';
+import { CATEGORIES, CATEGORY_CODE, CATEGORY_LABEL, type Category, type Place } from '../core/place';
 import { type Query, type SortKey, filterPlaces, tagCounts } from '../data/query';
 import { byId, h } from './dom';
 
@@ -21,7 +21,7 @@ export class ListView {
     private readonly mapCenter: () => { lat: number; lng: number },
     private readonly isUserPlace: (id: string) => boolean,
   ) {
-    for (const c of CATEGORIES) this.category.append(h('option', { value: c }, `${CATEGORY_ICON[c]} ${CATEGORY_LABEL[c]}`));
+    for (const c of CATEGORIES) this.category.append(h('option', { value: c }, `${CATEGORY_CODE[c]} · ${CATEGORY_LABEL[c]}`));
     this.q.addEventListener('input', () => this.render());
     this.category.addEventListener('change', () => this.render());
     this.sort.addEventListener('change', () => this.render());
@@ -70,13 +70,13 @@ export class ListView {
 
   render(): void {
     const results = filterPlaces(this.places, this.query());
-    this.count.textContent = `${results.length} of ${this.places.length} places`;
+    this.count.textContent = `${results.length} of ${this.places.length} sites`;
     this.list.replaceChildren(
       ...results.map((p) => {
         const item = h(
           'button',
           { class: 'place-item', type: 'button', 'data-id': p.id, 'aria-current': String(p.id === this.selectedId) },
-          h('span', { class: 'badge', 'aria-hidden': 'true' }, CATEGORY_ICON[p.category]),
+          h('span', { class: 'badge', 'aria-hidden': 'true' }, CATEGORY_CODE[p.category]),
           h(
             'span',
             {},
@@ -89,6 +89,6 @@ export class ListView {
         return h('li', {}, item);
       }),
     );
-    if (!results.length) this.list.append(h('li', { class: 'result-count' }, 'Nothing matches — try fewer filters.'));
+    if (!results.length) this.list.append(h('li', { class: 'result-count' }, 'No signal — try fewer filters'));
   }
 }

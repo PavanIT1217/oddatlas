@@ -1,13 +1,14 @@
 type Mode = 'system' | 'light' | 'dark';
 const KEY = 'oddatlas:theme';
-const ORDER: Mode[] = ['system', 'light', 'dark'];
-const LABEL: Record<Mode, string> = { system: 'Auto', light: 'Light', dark: 'Dark' };
+const ORDER: Mode[] = ['dark', 'light', 'system'];
+const LABEL: Record<Mode, string> = { system: 'Auto', light: 'Daylight', dark: 'HUD dark' };
 
 export function initTheme(nameEl: HTMLElement): () => void {
-  let mode: Mode = 'system';
+  // The HUD is designed dark-first; "Auto" follows the device.
+  let mode: Mode = 'dark';
   try {
     const v = localStorage.getItem(KEY);
-    if (v === 'light' || v === 'dark') mode = v;
+    if (v === 'light' || v === 'dark' || v === 'system') mode = v;
   } catch {
     /* ignore */
   }
@@ -20,8 +21,7 @@ export function initTheme(nameEl: HTMLElement): () => void {
   return () => {
     mode = ORDER[(ORDER.indexOf(mode) + 1) % ORDER.length];
     try {
-      if (mode === 'system') localStorage.removeItem(KEY);
-      else localStorage.setItem(KEY, mode);
+      localStorage.setItem(KEY, mode);
     } catch {
       /* ignore */
     }

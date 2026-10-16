@@ -8,7 +8,7 @@ const svg = await readFile(new URL('../public/favicon.svg', import.meta.url), 'u
 const executablePath = process.env.CHROMIUM_PATH ?? '/opt/pw-browsers/chromium-1194/chrome-linux/chrome';
 const browser = await chromium.launch({ executablePath });
 const page = await browser.newPage();
-const BG = process.env.ICON_BG ?? '#13151c';
+const BG = process.env.ICON_BG ?? '#050b14';
 
 async function render(file, size, { padding = 0, bg = 'transparent', canvas = size } = {}) {
   const inner = size - padding * 2;
@@ -29,6 +29,6 @@ await render('public/icons/maskable-512.png', 512, { padding: 64, bg: BG });
 await render('public/icons/apple-touch-icon.png', 180, { padding: 0, bg: BG });
 await render('resources/icon.png', 1024, { bg: BG });
 await render('resources/icon-foreground.png', 1024, { padding: 260 });
-await render('resources/splash.png', 2732, { padding: 1100, bg: process.env.SPLASH_BG ?? '#f5f3ee' });
-await render('resources/splash-dark.png', 2732, { padding: 1100, bg: process.env.SPLASH_DARK_BG ?? '#13151c' });
+await render('resources/splash.png', 2732, { padding: 1100, bg: process.env.SPLASH_BG ?? '#050b14' });
+await render('resources/splash-dark.png', 2732, { padding: 1100, bg: process.env.SPLASH_DARK_BG ?? '#050b14' });
 await browser.close();

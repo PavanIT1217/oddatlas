@@ -10,9 +10,9 @@ installations — every one visible from above. Live: **https://pavanit1217.gith
 Vite + TypeScript + Leaflet, OpenStreetMap tiles plus an Esri World Imagery satellite layer, no API keys
 and no backend. Ships as a website, an installable PWA and iOS / Android apps (Capacitor).
 
-| Map | Place card | List (dark) | Add a place |
-| --- | --- | --- | --- |
-| ![Map](docs/screenshots/mobile-map.png) | ![Card](docs/screenshots/mobile-card.png) | ![List](docs/screenshots/mobile-list-dark.png) | ![Add](docs/screenshots/mobile-add.png) |
+| Map | Target card | List | Daylight theme | Add a place |
+| --- | --- | --- | --- | --- |
+| ![Map](docs/screenshots/mobile-map.png) | ![Card](docs/screenshots/mobile-card.png) | ![List](docs/screenshots/mobile-list.png) | ![Daylight](docs/screenshots/mobile-daylight.png) | ![Add](docs/screenshots/mobile-add.png) |
 
 ![Desktop](docs/screenshots/desktop-place.png)
 
@@ -28,8 +28,11 @@ and no backend. Ships as a website, an installable PWA and iOS / Android apps (C
 - **Export / import** the whole catalogue as JSON (merge or replace), validated on the way in.
 - **Random strange place** button.
 - **Deep links**: `?place=richat-structure`.
-- **Mobile-first** layout (bottom navigation, bottom-sheet card), side-by-side list + map on desktop,
-  **light / dark / auto** theme (street tiles are inverted in dark mode).
+- **HUD design**: a mission-control look — deep-space navy, cyan telemetry lines, corner brackets,
+  a map crosshair with live LAT/LNG/ZOOM readout, "target locked" cards with coordinate tiles,
+  three-letter class codes (`GEO`, `H2O`, `CRT`…) and catalogue telemetry tiles. Dark HUD by default,
+  plus a **daylight** (light) variant and **auto** (follows the device); street tiles are re-tinted in dark mode.
+- **Mobile-first** layout (bottom navigation, bottom-sheet card), side-by-side list + map on desktop.
 - **SEO**: at build time the seed catalogue is baked into `index.html` as JSON-LD (`ItemList` of
   `TouristAttraction`s with coordinates) and a crawlable list; per-place URLs are in `sitemap.xml`.
 

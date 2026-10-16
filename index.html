@@ -12,9 +12,11 @@
     <meta name="author" content="PavanIT1217" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href="https://pavanit1217.github.io/oddatlas/" />
-    <meta name="theme-color" content="#f5f3ee" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#13151c" media="(prefers-color-scheme: dark)" />
-    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#050b14" />
+    <meta name="color-scheme" content="dark light" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Orbitron:wght@500;700&display=swap" />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="OddAtlas" />
@@ -37,11 +39,14 @@
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-title" content="OddAtlas" />
     <script>
-      // Apply the saved theme before first paint (no flash).
+      // Apply the saved theme before first paint (no flash). The HUD is dark by default.
       try {
         const t = localStorage.getItem('oddatlas:theme');
         if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
-      } catch {}
+        else if (t !== 'system') document.documentElement.dataset.theme = 'dark';
+      } catch {
+        document.documentElement.dataset.theme = 'dark';
+      }
     </script>
     <!--SEO_JSONLD-->
   </head>
@@ -49,11 +54,12 @@
     <header class="topbar">
       <a class="brand" href="./" aria-label="OddAtlas home">
         <svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><use href="#logo" /></svg>
-        <span>Odd<b>Atlas</b></span>
+        <span class="brand-name">ODD<b>ATLAS</b></span>
       </a>
       <div class="top-actions">
+        <span id="status-pill" class="status-pill" aria-live="polite"><i aria-hidden="true"></i><span id="status-count">— SITES</span></span>
         <button id="btn-random" class="btn ghost" type="button" title="Take me somewhere strange">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-dice" /></svg><span class="label">Random</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-dice" /></svg><span class="label">Random scan</span>
         </button>
         <button id="btn-add-top" class="btn primary desktop-only" type="button">
           <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-plus" /></svg><span>Add place</span>
@@ -74,6 +80,12 @@
 
     <main class="layout">
       <section id="list-view" class="list-view" aria-label="Places list">
+        <dl class="telemetry" aria-label="Catalogue summary">
+          <div class="tile"><dt>Sites</dt><dd id="stat-sites">—</dd></div>
+          <div class="tile"><dt>Countries</dt><dd id="stat-countries">—</dd></div>
+          <div class="tile"><dt>Classes</dt><dd id="stat-classes">—</dd></div>
+          <div class="tile"><dt>Yours</dt><dd id="stat-yours">—</dd></div>
+        </dl>
         <div class="filters">
           <label class="search">
             <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-search" /></svg>
@@ -102,6 +114,8 @@
 
       <section id="map-view" class="map-view" aria-label="Map">
         <div id="map" class="map" role="application" aria-label="Map of strange places"></div>
+        <div class="hud-overlay" aria-hidden="true"><span class="crosshair"></span></div>
+        <div id="readout" class="readout" aria-hidden="true"></div>
         <article id="card" class="card" hidden aria-live="polite"></article>
       </section>
     </main>
@@ -177,10 +191,10 @@
 
     <svg width="0" height="0" style="position: absolute" aria-hidden="true">
       <symbol id="logo" viewBox="0 0 32 32">
-        <circle cx="16" cy="16" r="13" fill="none" stroke="currentColor" stroke-width="2.2" />
-        <path d="M5 13.5c4 1.5 6-2 10-.5s4 6 9 4.5M6 21c3-1 5 1.5 8 .5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity=".55" />
-        <circle cx="21" cy="11" r="3.4" fill="var(--accent)" />
-        <circle cx="21" cy="11" r="1.2" fill="var(--bg)" />
+        <circle cx="16" cy="16" r="11" fill="none" stroke="currentColor" stroke-width="1.6" />
+        <ellipse cx="16" cy="16" rx="15" ry="6" fill="none" stroke="currentColor" stroke-width="1.1" opacity=".6" transform="rotate(-25 16 16)" />
+        <path d="M16 1v5M16 26v5M1 16h5M26 16h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+        <circle cx="22.5" cy="11" r="2.6" fill="var(--warn)" />
       </symbol>
       <symbol id="i-dice" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="4" fill="none" stroke="currentColor" stroke-width="1.8" /><circle cx="8.5" cy="8.5" r="1.4" fill="currentColor" /><circle cx="15.5" cy="15.5" r="1.4" fill="currentColor" /><circle cx="12" cy="12" r="1.4" fill="currentColor" /><circle cx="15.5" cy="8.5" r="1.4" fill="currentColor" /><circle cx="8.5" cy="15.5" r="1.4" fill="currentColor" /></symbol>
       <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" /></symbol>

@@ -51,6 +51,7 @@ export class App {
     });
     this.catalogue.subscribe(() => this.refresh());
     this.bindChrome();
+    this.bindReadout();
     this.refresh();
   }
 
@@ -63,6 +64,7 @@ export class App {
     const all = this.catalogue.all();
     this.map.setPlaces(all);
     this.list.setPlaces(all);
+    this.updateTelemetry(all);
     if (this.selected) {
       const fresh = this.catalogue.get(this.selected.id);
       if (fresh) {
@@ -70,6 +72,33 @@ export class App {
         this.card.show(fresh, this.catalogue.isModified(fresh.id));
       } else this.deselect();
     }
+  }
+
+  /** Summary tiles over the list and the status pill in the top bar. */
+  private updateTelemetry(all: Place[]): void {
+    const pad = (n: number) => String(n).padStart(2, '0');
+    byId('stat-sites').textContent = pad(all.length);
+    byId('stat-countries').textContent = pad(new Set(all.map((p) => p.country)).size);
+    byId('stat-classes').textContent = pad(new Set(all.map((p) => p.category)).size);
+    byId('stat-yours').textContent = pad(all.filter((p) => this.catalogue.isModified(p.id)).length);
+    byId('status-count').textContent = `${all.length} SITES TRACKED`;
+  }
+
+  /** Live LAT / LNG / ZOOM readout in the corner of the map. */
+  private bindReadout(): void {
+    const el = byId('readout');
+    const cells = ['LAT', '', 'LNG', '', 'ZOOM', ''].map((t) => {
+      const span = document.createElement('span');
+      span.textContent = t;
+      return span;
+    });
+    el.replaceChildren(...cells);
+    const fmt = (v: number, pos: string, neg: string) => `${Math.abs(v).toFixed(4)}° ${v >= 0 ? pos : neg}`;
+    this.map.onMove(({ lat, lng, zoom }) => {
+      cells[1].textContent = fmt(lat, 'N', 'S');
+      cells[3].textContent = fmt(lng, 'E', 'W');
+      cells[5].textContent = `Z${String(Math.round(zoom)).padStart(2, '0')}`;
+    });
   }
 
   private select(id: string, fly = true): void {

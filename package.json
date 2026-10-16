@@ -22,7 +22,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "screenshots": "node scripts/screenshots.mjs",
-    "icons": "node scripts/generate-icons.mjs && npx @capacitor/assets generate --iconBackgroundColor '#13151c' --iconBackgroundColorDark '#13151c' --splashBackgroundColor '#f5f3ee' --splashBackgroundColorDark '#13151c'",
+    "icons": "node scripts/generate-icons.mjs && npx @capacitor/assets generate --iconBackgroundColor '#050b14' --iconBackgroundColorDark '#050b14' --splashBackgroundColor '#050b14' --splashBackgroundColorDark '#050b14'",
     "cap:sync": "npm run build && cap sync",
     "android": "npm run cap:sync && cap open android",
     "ios": "npm run cap:sync && cap open ios"
